@@ -1,0 +1,2402 @@
+<html lang="pt-BR"><head><meta http-equiv="x-dns-prefetch-control" content="off"><script src="https://puc.poecdn.net/standard.c8d3df4d67dddca2ccac.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora: Compra vs. Assinatura BYD King GS</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        .header p {
+            color: #7f8c8d;
+            margin-top: 0;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .dashboard {
+                grid-template-columns: 350px 1fr;
+            }
+        }
+        .inputs {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .results {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        @media (min-width: 992px) {
+            .results {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .card {
+            background-color: white;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        .card h3 {
+            margin-top: 0;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 8px;
+            color: #2c3e50;
+        }
+        .summary {
+            background-color: #e9f7ef;
+            grid-column: 1 / -1;
+        }
+        .financial-summary {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        @media (min-width: 768px) {
+            .financial-summary {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        .financial-item {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .financial-item.highlighted {
+            background-color: #d4edda;
+            font-weight: bold;
+        }
+        .chart-container {
+            height: 300px;
+            margin-top: 15px;
+            position: relative;
+        }
+        .tabs {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #f1f1f1;
+            border: 1px solid #ddd;
+            border-bottom: none;
+            margin-right: 5px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 5px;
+        }
+        .tab.active {
+            background-color: white;
+            border-bottom: 1px solid white;
+            margin-bottom: -1px;
+            font-weight: bold;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .recommendation {
+            font-size: 1.2em;
+            text-align: center;
+            padding: 15px;
+            margin-top: 15px;
+            background-color: #d4edda;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #155724;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: right;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+        .segmentation {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .segmentation h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .toggle-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+            margin-right: 10px;
+        }
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+        .range-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .range-container input[type="range"] {
+            flex-grow: 1;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: bold;
+            line-height: 1;
+            color: #fff;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 10px;
+            background-color: #17a2b8;
+        }
+        .alert {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .alert-info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+        }
+        .alert-warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+        }
+        .alert-success {
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        .print-button {
+            background-color: #6c757d;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .github-button {
+            background-color: #24292e;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+        }
+        .github-button svg {
+            margin-right: 5px;
+        }
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            .container, .container * {
+                visibility: visible;
+            }
+            .container {
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+            }
+            .tab, .print-button, .github-button {
+                display: none;
+            }
+            .tab-content {
+                display: block;
+            }
+        }
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .loading-spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .dep-rate-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 8px;
+        }
+        .dep-rate-table th,
+        .dep-rate-table td {
+            padding: 6px;
+            text-align: center;
+        }
+        .dep-rate-table input {
+            width: 60px;
+            text-align: center;
+        }
+        .accordeon {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .accordeon-header {
+            background-color: #f8f9fa;
+            padding: 10px 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        .accordeon-header h4 {
+            margin: 0;
+        }
+        .accordeon-content {
+            padding: 15px;
+            display: none;
+        }
+        .accordeon-content.open {
+            display: block;
+        }
+        .footnote {
+            font-size: 0.85em;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .code-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+    </style>
+<script src="https://puc.poecdn.net/disableWebRTC.1aeb03bd12f4b156eecc.js"></script><script src="https://puc.poecdn.net/miniApp.e6923fed7713d45f0534.js"></script><script src="https://puc.poecdn.net/console.e20cce36f6cc5b74945a.js"></script><script src="https://puc.poecdn.net/interceptAndTriggerCspOnLinkClick.ecb4066cf8f367d9844b.js"></script><script src="https://puc.poecdn.net/interceptCopyToClipboard.43a721161d8d1fb2ba89.js"></script></head>
+<body>
+    <div id="loading" class="loading" style="display: none;">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Análise: Comprar vs. Assinar BYD King GS</h1>
+            <p>Compare as opções financeiras e tome a melhor decisão</p>
+            <div>
+                <button id="printReport" class="print-button">Imprimir Relatório</button>
+                <button id="exportHTML" class="github-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                    </svg>
+                    Exportar HTML
+                </button>
+            </div>
+        </div>
+        
+        <div class="tabs">
+            <div class="tab active" data-tab="dashboard">Dashboard</div>
+            <div class="tab" data-tab="cashflow">Fluxo de Caixa</div>
+            <div class="tab" data-tab="charts">Gráficos</div>
+            <div class="tab" data-tab="details">Detalhes</div>
+            <div class="tab" data-tab="simulation">Simulações</div>
+            <div class="tab" data-tab="github">GitHub</div>
+        </div>
+        
+        <div class="tab-content active" id="dashboard">
+            <div class="dashboard">
+                <div class="inputs">
+                    <h3>Parâmetros</h3>
+                    
+                    <div class="input-group">
+                        <label for="tipoUsuario">Tipo de Usuário:</label>
+                        <select id="tipoUsuario">
+                            <option value="PF">Pessoa Física</option>
+                            <option value="PJ">Pessoa Jurídica</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="valorCarro">Valor do Carro (R$):</label>
+                        <input type="number" id="valorCarro" value="164000">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="percentualEntrada">Entrada (%):</label>
+                        <div class="range-container">
+                            <input type="range" id="percentualEntradaRange" min="0" max="80" value="30" step="5">
+                            <input type="number" id="percentualEntrada" value="30" min="0" max="100" style="width: 60px;">
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="prazoFinanciamento">Prazo do Financiamento (meses):</label>
+                        <select id="prazoFinanciamento">
+                            <option value="12">12 meses</option>
+                            <option value="24">24 meses</option>
+                            <option value="36" selected="">36 meses</option>
+                            <option value="48">48 meses</option>
+                            <option value="60">60 meses</option>
+                            <option value="72">72 meses</option>
+                            <option value="84">84 meses</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="taxaJuros">Taxa de Juros (% a.m.):</label>
+                        <input type="number" id="taxaJuros" value="1.5" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="taxaRetorno">Taxa de Retorno Investimento (% a.a.):</label>
+                        <input type="number" id="taxaRetorno" value="10" step="0.5" min="0">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="taxaDescontoVPL">Taxa de Desconto VPL (% a.a.):</label>
+                        <input type="number" id="taxaDescontoVPL" value="12" step="0.5" min="0">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="valorAssinatura">Mensalidade Assinatura (R$):</label>
+                        <input type="number" id="valorAssinatura" value="3290">
+                    </div>
+                    
+                    <div class="accordeon">
+                        <div class="accordeon-header" onclick="toggleAccordeon(this)">
+                            <h4>Depreciação por Ano</h4>
+                            <span>▲</span>
+                        </div>
+                        <div class="accordeon-content open">
+                            <p>Configure a taxa de depreciação para cada ano:</p>
+                            <div id="depreciacao-container">
+                                <table class="dep-rate-table" id="depreciacao-table">
+                                    <tbody><tr>
+                                        <th>Ano 1</th>
+                                        <th>Ano 2</th>
+                                        <th>Ano 3</th>
+                                        <th>Ano 4</th>
+                                        <th>Ano 5</th>
+                                    </tr>
+                                    <tr>
+                                        <td><input type="number" class="dep-rate" value="20" min="0" max="50" step="0.5">%</td>
+                                        <td><input type="number" class="dep-rate" value="15" min="0" max="50" step="0.5">%</td>
+                                        <td><input type="number" class="dep-rate" value="12" min="0" max="50" step="0.5">%</td>
+                                        <td><input type="number" class="dep-rate" value="10" min="0" max="50" step="0.5">%</td>
+                                        <td><input type="number" class="dep-rate" value="8" min="0" max="50" step="0.5">%</td>
+                                    </tr>
+                                </tbody></table>
+                                <p class="footnote">* Taxas de depreciação para os primeiros 5 anos. Anos adicionais usarão a última taxa configurada.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="custoIPVA">IPVA Anual (% do valor do carro):</label>
+                        <input type="number" id="custoIPVA" value="4" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="custoSeguro">Seguro Anual (% do valor do carro):</label>
+                        <input type="number" id="custoSeguro" value="3.5" step="0.1" min="0">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="custoManutencao">Manutenção Anual (R$):</label>
+                        <input type="number" id="custoManutencao" value="2000">
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="periodoAnalise">Período de Análise (anos):</label>
+                        <input type="number" id="periodoAnalise" value="5" min="1" max="15">
+                    </div>
+                    
+                    <div class="input-group">
+                        <div class="toggle-container">
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="considerarBeneficios">
+                                <span class="slider"></span>
+                            </label>
+                            <label for="considerarBeneficios">Considerar benefícios fiscais (PJ)</label>
+                        </div>
+                    </div>
+                    
+                    <button id="calcular" style="width: 100%; padding: 10px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 10px;">Calcular</button>
+                </div>
+                
+                <div class="results">
+                    <div class="card summary">
+                        <h3>Resumo Comparativo</h3>
+                        <div class="recommendation" id="recommendation" style="background-color: rgb(212, 237, 218); color: rgb(21, 87, 36);">Recomendação: COMPRAR o veículo</div>
+                        <div class="financial-summary">
+                            <div class="financial-item">
+                                <span>Valor Total (Compra):</span>
+                                <span id="valorTotalCompra">R$&nbsp;171.841,30</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Valor Total (Assinatura):</span>
+                                <span id="valorTotalAssinatura">R$&nbsp;197.400,00</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>VPL (Compra):</span>
+                                <span id="vplCompra">R$&nbsp;145.658,57</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>VPL (Assinatura):</span>
+                                <span id="vplAssinatura">R$&nbsp;127.068,36</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Valor Residual após <span id="anosResidual">5</span> anos:</span>
+                                <span id="valorResidual">R$&nbsp;81.257,93</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Custo de Oportunidade:</span>
+                                <span id="custoOportunidade">R$&nbsp;30.037,09</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Economia/Custo Adicional:</span>
+                                <span id="economiaTotal">R$&nbsp;25.558,70</span>
+                            </div>
+                            <div class="financial-item">
+                                <span>Economia Mensal Média:</span>
+                                <span id="economiaMensal">R$&nbsp;425,98</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Custos Totais - Compra</h3>
+                        <div class="chart-container">
+                            <canvas id="chartCompra" height="750" style="display: block; box-sizing: border-box; height: 300px; width: 461px;" width="1152"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Custos Totais - Assinatura</h3>
+                        <div class="chart-container">
+                            <canvas id="chartAssinatura" height="750" style="display: block; box-sizing: border-box; height: 300px; width: 461px;" width="1152"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Comparativo Anual</h3>
+                        <div class="chart-container">
+                            <canvas id="chartAnual" height="750" style="display: block; box-sizing: border-box; height: 300px; width: 461px;" width="1152"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="cashflow">
+            <h3>Análise de Fluxo de Caixa</h3>
+            <div class="segmentation">
+                <h4>Filtros</h4>
+                <select id="filtroFluxo">
+                    <option value="todos">Todos os custos</option>
+                    <option value="financiamento">Apenas financiamento</option>
+                    <option value="custos">Apenas custos operacionais</option>
+                </select>
+            </div>
+            <div style="overflow-x: auto;">
+                <table id="tableCashflow">
+                    <thead>
+                        <tr>
+                            <th>Ano</th>
+                            <th>Financiamento (R$)</th>
+                            <th>IPVA (R$)</th>
+                            <th>Seguro (R$)</th>
+                            <th>Manutenção (R$)</th>
+                            <th>Total Anual (R$)</th>
+                            <th>Valor do Carro (R$)</th>
+                            <th>Assinatura (R$)</th>
+                            <th>Diferença (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cashflowBody"><tr>
+                    <td>0</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;49.200,00</td>
+                    <td>R$&nbsp;164.000,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td class="negative">-R$&nbsp;49.200,00</td>
+                </tr><tr>
+                    <td>1</td>
+                    <td>R$&nbsp;49.803,54</td>
+                    <td>R$&nbsp;6.560,00</td>
+                    <td>R$&nbsp;5.740,00</td>
+                    <td>R$&nbsp;2.000,00</td>
+                    <td>R$&nbsp;64.103,54</td>
+                    <td>R$&nbsp;131.200,00</td>
+                    <td>R$&nbsp;39.480,00</td>
+                    <td class="negative">-R$&nbsp;24.623,54</td>
+                </tr><tr>
+                    <td>2</td>
+                    <td>R$&nbsp;49.803,54</td>
+                    <td>R$&nbsp;5.248,00</td>
+                    <td>R$&nbsp;4.592,00</td>
+                    <td>R$&nbsp;2.000,00</td>
+                    <td>R$&nbsp;61.643,54</td>
+                    <td>R$&nbsp;111.520,00</td>
+                    <td>R$&nbsp;39.480,00</td>
+                    <td class="negative">-R$&nbsp;22.163,54</td>
+                </tr><tr>
+                    <td>3</td>
+                    <td>R$&nbsp;49.803,54</td>
+                    <td>R$&nbsp;4.460,80</td>
+                    <td>R$&nbsp;3.903,20</td>
+                    <td>R$&nbsp;2.000,00</td>
+                    <td>R$&nbsp;60.167,54</td>
+                    <td>R$&nbsp;98.137,60</td>
+                    <td>R$&nbsp;39.480,00</td>
+                    <td class="negative">-R$&nbsp;20.687,54</td>
+                </tr><tr>
+                    <td>4</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;3.925,50</td>
+                    <td>R$&nbsp;3.434,82</td>
+                    <td>R$&nbsp;2.000,00</td>
+                    <td>R$&nbsp;9.360,32</td>
+                    <td>R$&nbsp;88.323,84</td>
+                    <td>R$&nbsp;39.480,00</td>
+                    <td class="positive">R$&nbsp;30.119,68</td>
+                </tr><tr>
+                    <td>5</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;3.532,95</td>
+                    <td>R$&nbsp;3.091,33</td>
+                    <td>R$&nbsp;2.000,00</td>
+                    <td>R$&nbsp;8.624,29</td>
+                    <td>R$&nbsp;81.257,93</td>
+                    <td>R$&nbsp;39.480,00</td>
+                    <td class="positive">R$&nbsp;30.855,71</td>
+                </tr></tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin-top: 30px;">Análise de VPL (Valor Presente Líquido)</h3>
+            <div style="overflow-x: auto;">
+                <table id="tableVPL">
+                    <thead>
+                        <tr>
+                            <th>Ano</th>
+                            <th>Fluxo de Caixa - Compra (R$)</th>
+                            <th>Valor Presente - Compra (R$)</th>
+                            <th>Fluxo de Caixa - Assinatura (R$)</th>
+                            <th>Valor Presente - Assinatura (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vplBody"><tr>
+                    <td>0</td>
+                    <td>-R$&nbsp;49.200,00</td>
+                    <td>-R$&nbsp;49.200,00</td>
+                    <td>R$&nbsp;0,00</td>
+                    <td>R$&nbsp;0,00</td>
+                </tr><tr>
+                    <td>1</td>
+                    <td>-R$&nbsp;64.103,54</td>
+                    <td>-R$&nbsp;57.235,30</td>
+                    <td>-R$&nbsp;39.480,00</td>
+                    <td>-R$&nbsp;35.250,00</td>
+                </tr><tr>
+                    <td>2</td>
+                    <td>-R$&nbsp;61.643,54</td>
+                    <td>-R$&nbsp;49.141,85</td>
+                    <td>-R$&nbsp;39.480,00</td>
+                    <td>-R$&nbsp;31.473,21</td>
+                </tr><tr>
+                    <td>3</td>
+                    <td>-R$&nbsp;60.167,54</td>
+                    <td>-R$&nbsp;42.826,07</td>
+                    <td>-R$&nbsp;39.480,00</td>
+                    <td>-R$&nbsp;28.101,08</td>
+                </tr><tr>
+                    <td>4</td>
+                    <td>-R$&nbsp;9.360,32</td>
+                    <td>-R$&nbsp;5.948,65</td>
+                    <td>-R$&nbsp;39.480,00</td>
+                    <td>-R$&nbsp;25.090,25</td>
+                </tr><tr>
+                    <td>5</td>
+                    <td>R$&nbsp;72.633,64</td>
+                    <td>R$&nbsp;41.214,28</td>
+                    <td>-R$&nbsp;39.480,00</td>
+                    <td>-R$&nbsp;22.402,01</td>
+                </tr></tbody>
+                    <tfoot>
+                        <tr>
+                            <th>VPL Total</th>
+                            <th colspan="2" id="vplTotalCompra">R$&nbsp;145.658,57</th>
+                            <th colspan="2" id="vplTotalAssinatura">R$&nbsp;127.068,36</th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="charts">
+            <h3>Gráficos Comparativos</h3>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                <div class="card">
+                    <h3>Comparativo de Custos Acumulados</h3>
+                    <div class="chart-container">
+                        <canvas id="chartCustosAcumulados" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Impacto da Entrada no Financiamento</h3>
+                    <div class="chart-container">
+                        <canvas id="chartEntradas" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Comparativo por Prazo de Financiamento</h3>
+                    <div class="chart-container">
+                        <canvas id="chartPrazos" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Análise de Sensibilidade</h3>
+                    <div class="chart-container">
+                        <canvas id="chartSensibilidade" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="details">
+            <h3>Detalhamento do Financiamento</h3>
+            
+            <div class="segmentation">
+                <h4>Veja detalhes do financiamento</h4>
+                <p>Valor financiado: <span id="valorFinanciado">R$&nbsp;114.800,00</span></p>
+                <p>Valor da parcela: <span id="valorParcela">R$&nbsp;4.150,30</span></p>
+                <p>Total pago: <span id="totalPago">R$&nbsp;149.410,62</span></p>
+                <p>Total de juros: <span id="totalJuros">R$&nbsp;34.610,62</span></p>
+            </div>
+            
+            <div style="overflow-x: auto; margin-top: 20px;">
+                <table id="tableAmortizacao">
+                    <thead>
+                        <tr>
+                            <th>Mês</th>
+                            <th>Prestação (R$)</th>
+                            <th>Amortização (R$)</th>
+                            <th>Juros (R$)</th>
+                            <th>Saldo Devedor (R$)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="amortizacaoBody"><tr>
+                    <td>1</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.428,30</td>
+                    <td>R$&nbsp;1.722,00</td>
+                    <td>R$&nbsp;112.371,70</td>
+                </tr><tr>
+                    <td>2</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.464,72</td>
+                    <td>R$&nbsp;1.685,58</td>
+                    <td>R$&nbsp;109.906,99</td>
+                </tr><tr>
+                    <td>3</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.501,69</td>
+                    <td>R$&nbsp;1.648,60</td>
+                    <td>R$&nbsp;107.405,30</td>
+                </tr><tr>
+                    <td>4</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.539,22</td>
+                    <td>R$&nbsp;1.611,08</td>
+                    <td>R$&nbsp;104.866,08</td>
+                </tr><tr>
+                    <td>5</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.577,30</td>
+                    <td>R$&nbsp;1.572,99</td>
+                    <td>R$&nbsp;102.288,78</td>
+                </tr><tr>
+                    <td>6</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.615,96</td>
+                    <td>R$&nbsp;1.534,33</td>
+                    <td>R$&nbsp;99.672,81</td>
+                </tr><tr>
+                    <td>7</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.655,20</td>
+                    <td>R$&nbsp;1.495,09</td>
+                    <td>R$&nbsp;97.017,61</td>
+                </tr><tr>
+                    <td>8</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.695,03</td>
+                    <td>R$&nbsp;1.455,26</td>
+                    <td>R$&nbsp;94.322,58</td>
+                </tr><tr>
+                    <td>9</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.735,46</td>
+                    <td>R$&nbsp;1.414,84</td>
+                    <td>R$&nbsp;91.587,12</td>
+                </tr><tr>
+                    <td>10</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.776,49</td>
+                    <td>R$&nbsp;1.373,81</td>
+                    <td>R$&nbsp;88.810,63</td>
+                </tr><tr>
+                    <td>11</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.818,14</td>
+                    <td>R$&nbsp;1.332,16</td>
+                    <td>R$&nbsp;85.992,50</td>
+                </tr><tr>
+                    <td>12</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.860,41</td>
+                    <td>R$&nbsp;1.289,89</td>
+                    <td>R$&nbsp;83.132,09</td>
+                </tr><tr>
+                    <td>13</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.903,31</td>
+                    <td>R$&nbsp;1.246,98</td>
+                    <td>R$&nbsp;80.228,78</td>
+                </tr><tr>
+                    <td>14</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.946,86</td>
+                    <td>R$&nbsp;1.203,43</td>
+                    <td>R$&nbsp;77.281,91</td>
+                </tr><tr>
+                    <td>15</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;2.991,07</td>
+                    <td>R$&nbsp;1.159,23</td>
+                    <td>R$&nbsp;74.290,85</td>
+                </tr><tr>
+                    <td>16</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.035,93</td>
+                    <td>R$&nbsp;1.114,36</td>
+                    <td>R$&nbsp;71.254,92</td>
+                </tr><tr>
+                    <td>17</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.081,47</td>
+                    <td>R$&nbsp;1.068,82</td>
+                    <td>R$&nbsp;68.173,44</td>
+                </tr><tr>
+                    <td>18</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.127,69</td>
+                    <td>R$&nbsp;1.022,60</td>
+                    <td>R$&nbsp;65.045,75</td>
+                </tr><tr>
+                    <td>19</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.174,61</td>
+                    <td>R$&nbsp;975,69</td>
+                    <td>R$&nbsp;61.871,14</td>
+                </tr><tr>
+                    <td>20</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.222,23</td>
+                    <td>R$&nbsp;928,07</td>
+                    <td>R$&nbsp;58.648,91</td>
+                </tr><tr>
+                    <td>21</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.270,56</td>
+                    <td>R$&nbsp;879,73</td>
+                    <td>R$&nbsp;55.378,35</td>
+                </tr><tr>
+                    <td>22</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.319,62</td>
+                    <td>R$&nbsp;830,68</td>
+                    <td>R$&nbsp;52.058,73</td>
+                </tr><tr>
+                    <td>23</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.369,41</td>
+                    <td>R$&nbsp;780,88</td>
+                    <td>R$&nbsp;48.689,32</td>
+                </tr><tr>
+                    <td>24</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.419,96</td>
+                    <td>R$&nbsp;730,34</td>
+                    <td>R$&nbsp;45.269,36</td>
+                </tr><tr>
+                    <td>25</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.471,25</td>
+                    <td>R$&nbsp;679,04</td>
+                    <td>R$&nbsp;41.798,11</td>
+                </tr><tr>
+                    <td>26</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.523,32</td>
+                    <td>R$&nbsp;626,97</td>
+                    <td>R$&nbsp;38.274,79</td>
+                </tr><tr>
+                    <td>27</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.576,17</td>
+                    <td>R$&nbsp;574,12</td>
+                    <td>R$&nbsp;34.698,61</td>
+                </tr><tr>
+                    <td>28</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.629,82</td>
+                    <td>R$&nbsp;520,48</td>
+                    <td>R$&nbsp;31.068,80</td>
+                </tr><tr>
+                    <td>29</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.684,26</td>
+                    <td>R$&nbsp;466,03</td>
+                    <td>R$&nbsp;27.384,53</td>
+                </tr><tr>
+                    <td>30</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.739,53</td>
+                    <td>R$&nbsp;410,77</td>
+                    <td>R$&nbsp;23.645,01</td>
+                </tr><tr>
+                    <td>31</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.795,62</td>
+                    <td>R$&nbsp;354,68</td>
+                    <td>R$&nbsp;19.849,39</td>
+                </tr><tr>
+                    <td>32</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.852,55</td>
+                    <td>R$&nbsp;297,74</td>
+                    <td>R$&nbsp;15.996,83</td>
+                </tr><tr>
+                    <td>33</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.910,34</td>
+                    <td>R$&nbsp;239,95</td>
+                    <td>R$&nbsp;12.086,49</td>
+                </tr><tr>
+                    <td>34</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;3.969,00</td>
+                    <td>R$&nbsp;181,30</td>
+                    <td>R$&nbsp;8.117,49</td>
+                </tr><tr>
+                    <td>35</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;4.028,53</td>
+                    <td>R$&nbsp;121,76</td>
+                    <td>R$&nbsp;4.088,96</td>
+                </tr><tr>
+                    <td>36</td>
+                    <td>R$&nbsp;4.150,30</td>
+                    <td>R$&nbsp;4.088,96</td>
+                    <td>R$&nbsp;61,33</td>
+                    <td>R$&nbsp;0,00</td>
+                </tr></tbody>
+                </table>
+            </div>
+            
+            <h3 style="margin-top: 30px;">Curva de Depreciação do Veículo</h3>
+            <div class="chart-container">
+                <canvas id="chartDepreciacao" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+            </div>
+            
+            <h3 style="margin-top: 30px;">Análise para Pessoa Jurídica</h3>
+            <div class="segmentation">
+                <h4>Benefícios fiscais potenciais</h4>
+                <p>Na opção de assinatura, sua empresa pode deduzir 100% do valor como despesa operacional.</p>
+                <p>Economia de impostos estimada (considerando 32% de tributos): <span id="beneficioFiscal">R$&nbsp;0,00</span></p>
+                <p>VPL ajustado com benefício fiscal: <span id="vplAjustado">R$&nbsp;127.068,36</span></p>
+            </div>
+        </div>
+
+        <div class="tab-content" id="simulation">
+            <h3>Simulações de Cenários</h3>
+            
+            <div class="alert alert-info">
+                Esta seção permite simular diferentes cenários de compra versus assinatura variando parâmetros-chave.
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
+                <div class="card">
+                    <h3>Impacto do Período de Uso</h3>
+                    <p>Veja como o período de uso do veículo afeta a decisão entre compra e assinatura.</p>
+                    <div class="chart-container">
+                        <canvas id="chartPeriodoImpacto" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                    <div class="alert alert-warning" style="margin-top: 15px;">
+                        <strong>Observação:</strong> Períodos mais curtos tendem a favorecer a assinatura, enquanto períodos mais longos podem favorecer a compra devido ao valor residual do veículo.
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Comparativo de Break-even</h3>
+                    <p>Ponto de equilíbrio entre compra e assinatura ao longo do tempo.</p>
+                    <div class="chart-container">
+                        <canvas id="chartBreakeven" height="0" style="display: block; box-sizing: border-box; height: 0px; width: 0px;" width="0"></canvas>
+                    </div>
+                    <div id="breakEvenPoint" class="alert alert-success" style="margin-top: 15px;">
+                    <strong>Ponto de Equilíbrio (Break-even):</strong> 2 anos e 5 meses<br>
+                    Antes desse período, COMPRAR é mais vantajoso.<br>
+                    Após esse período, COMPRAR é mais vantajoso.
+                </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tab-content" id="github">
+            <h3>Como hospedar este projeto no GitHub</h3>
+            
+            <div class="alert alert-info">
+                Siga estas instruções para hospedar este calculador financeiro no GitHub Pages e ter acesso a ele a qualquer momento.
+            </div>
+            
+            <h4>Passo 1: Criar uma conta no GitHub</h4>
+            <p>Se você ainda não tem uma conta no GitHub, crie uma em <a href="https://github.com/join" target="_blank">github.com/join</a>.</p>
+            
+            <h4>Passo 2: Criar um novo repositório</h4>
+            <ol>
+                <li>Faça login na sua conta GitHub.</li>
+                <li>Clique no botão "+" no canto superior direito e selecione "New repository".</li>
+                <li>Nomeie seu repositório (exemplo: "calculadora-compra-vs-assinatura").</li>
+                <li>Deixe o repositório como "Public" para usar o GitHub Pages.</li>
+                <li>Clique em "Create repository".</li>
+            </ol>
+            
+            <h4>Passo 3: Salvar o código HTML deste projeto</h4>
+            <p>Use o botão "Exportar HTML" acima para copiar todo o código HTML deste projeto para a área de transferência.</p>
+            
+            <h4>Passo 4: Adicionar o código ao repositório</h4>
+            <ol>
+                <li>No seu novo repositório, clique no botão "Add file" e selecione "Create new file".</li>
+                <li>Nomeie o arquivo como "index.html".</li>
+                <li>Cole o código HTML copiado no editor de texto.</li>
+                <li>Ao final da página, clique em "Commit new file".</li>
+            </ol>
+            
+            <h4>Passo 5: Publicar no GitHub Pages</h4>
+            <ol>
+                <li>No seu repositório, clique na aba "Settings".</li>
+                <li>No menu lateral, clique em "Pages".</li>
+                <li>Na seção "Source", selecione "main" (ou "master") branch.</li>
+                <li>Clique em "Save".</li>
+                <li>Aguarde alguns minutos e seu site estará disponível no URL mostrado (geralmente https://seu-usuario.github.io/nome-do-repositorio/).</li>
+            </ol>
+            
+            <h4>Código para download</h4>
+            <p>Você também pode clicar no botão "Exportar HTML" acima para copiar todo o código HTML e salvá-lo como um arquivo .html local.</p>
+            
+            <div class="alert alert-success">
+                <strong>Dica:</strong> Uma vez hospedado no GitHub Pages, você pode acessar sua calculadora de qualquer lugar e compartilhá-la com outras pessoas.
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Variáveis para armazenar os gráficos
+        let chartCompra, chartAssinatura, chartAnual, chartCustosAcumulados, 
+            chartEntradas, chartPrazos, chartSensibilidade, chartPeriodoImpacto, 
+            chartBreakeven, chartDepreciacao;
+        
+        // Função para formatar valores monetários
+        function formatMoney(value) {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+        }
+        
+        // Função para calcular o financiamento
+        function calcularFinanciamento(valorFinanciado, taxaJuros, prazoMeses) {
+            const taxa = taxaJuros / 100;
+            const parcela = valorFinanciado * (taxa * Math.pow(1 + taxa, prazoMeses)) / (Math.pow(1 + taxa, prazoMeses) - 1);
+            
+            let saldoDevedor = valorFinanciado;
+            const amortizacao = [];
+            
+            for (let i = 1; i <= prazoMeses; i++) {
+                const juros = saldoDevedor * taxa;
+                const amortizacaoParcela = parcela - juros;
+                saldoDevedor -= amortizacaoParcela;
+                
+                amortizacao.push({
+                    mes: i,
+                    parcela: parcela,
+                    amortizacao: amortizacaoParcela,
+                    juros: juros,
+                    saldo: Math.max(0, saldoDevedor)
+                });
+            }
+            
+            return {
+                parcela: parcela,
+                totalPago: parcela * prazoMeses,
+                totalJuros: (parcela * prazoMeses) - valorFinanciado,
+                amortizacao: amortizacao
+            };
+        }
+        
+        // Função para calcular o valor presente líquido (VPL)
+        function calcularVPL(fluxoCaixa, taxaDesconto) {
+            const taxa = taxaDesconto / 100;
+            let vpl = 0;
+            
+            for (let i = 0; i < fluxoCaixa.length; i++) {
+                vpl += fluxoCaixa[i] / Math.pow(1 + taxa, i + 1);
+            }
+            
+            return vpl;
+        }
+        
+        // Função para obter as taxas de depreciação por ano
+        function getTaxasDepreciacao() {
+            const inputs = document.querySelectorAll('.dep-rate');
+            const taxas = [];
+            
+            inputs.forEach(input => {
+                taxas.push(parseFloat(input.value) / 100);
+            });
+            
+            return taxas;
+        }
+        
+        // Função para calcular a depreciação do veículo com taxas variáveis
+        function calcularDepreciacaoVariavel(valorInicial, taxasDepreciacao, anos) {
+            const valores = [valorInicial];
+            let valorAtual = valorInicial;
+            
+            for (let i = 1; i <= anos; i++) {
+                const taxaIndex = Math.min(i - 1, taxasDepreciacao.length - 1);
+                valorAtual = valorAtual * (1 - taxasDepreciacao[taxaIndex]);
+                valores.push(valorAtual);
+            }
+            
+            return valores;
+        }
+        
+        // Função para mostrar o loading
+        function showLoading() {
+            document.getElementById('loading').style.display = 'flex';
+        }
+        
+        // Função para esconder o loading
+        function hideLoading() {
+            document.getElementById('loading').style.display = 'none';
+        }
+        
+        // Função para alternar o acordeão
+        function toggleAccordeon(header) {
+            const content = header.nextElementSibling;
+            const isOpen = content.classList.contains('open');
+            
+            if (isOpen) {
+                content.classList.remove('open');
+                header.querySelector('span').textContent = '▼';
+            } else {
+                content.classList.add('open');
+                header.querySelector('span').textContent = '▲';
+            }
+        }
+        
+        // Função principal de cálculo
+        function calcular() {
+            showLoading();
+            
+            // Executar o cálculo após um pequeno delay para permitir que o indicador de loading seja exibido
+            setTimeout(() => {
+                try {
+                    realizarCalculo();
+                    hideLoading();
+                } catch (error) {
+                    console.error("Erro ao calcular:", error);
+                    alert("Ocorreu um erro ao realizar os cálculos. Por favor, verifique os valores inseridos.");
+                    hideLoading();
+                }
+            }, 100);
+        }
+        
+        // Função que realiza os cálculos
+        function realizarCalculo() {
+            // Obter valores dos inputs
+            const valorCarro = parseFloat(document.getElementById('valorCarro').value);
+            const percentualEntrada = parseFloat(document.getElementById('percentualEntrada').value);
+            const prazoFinanciamento = parseInt(document.getElementById('prazoFinanciamento').value);
+            const taxaJuros = parseFloat(document.getElementById('taxaJuros').value);
+            const taxaRetorno = parseFloat(document.getElementById('taxaRetorno').value);
+            const taxaDescontoVPL = parseFloat(document.getElementById('taxaDescontoVPL').value);
+            const valorAssinatura = parseFloat(document.getElementById('valorAssinatura').value);
+            const taxasDepreciacao = getTaxasDepreciacao();
+            const taxaIPVA = parseFloat(document.getElementById('custoIPVA').value);
+            const taxaSeguro = parseFloat(document.getElementById('custoSeguro').value);
+            const custoManutencao = parseFloat(document.getElementById('custoManutencao').value);
+            const periodoAnalise = parseInt(document.getElementById('periodoAnalise').value);
+            const tipoUsuario = document.getElementById('tipoUsuario').value;
+            const considerarBeneficios = document.getElementById('considerarBeneficios').checked;
+            
+            // Atualizar anos no resumo
+            document.getElementById('anosResidual').textContent = periodoAnalise;
+            
+            // Cálculo do financiamento
+            const valorEntrada = valorCarro * (percentualEntrada / 100);
+            const valorFinanciado = valorCarro - valorEntrada;
+            
+            document.getElementById('valorFinanciado').textContent = formatMoney(valorFinanciado);
+            
+            const financiamento = calcularFinanciamento(valorFinanciado, taxaJuros, prazoFinanciamento);
+            
+            document.getElementById('valorParcela').textContent = formatMoney(financiamento.parcela);
+            document.getElementById('totalPago').textContent = formatMoney(financiamento.totalPago);
+            document.getElementById('totalJuros').textContent = formatMoney(financiamento.totalJuros);
+            
+            // Preenchimento da tabela de amortização
+            const amortizacaoBody = document.getElementById('amortizacaoBody');
+            amortizacaoBody.innerHTML = '';
+            
+            financiamento.amortizacao.forEach(linha => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${linha.mes}</td>
+                    <td>${formatMoney(linha.parcela)}</td>
+                    <td>${formatMoney(linha.amortizacao)}</td>
+                    <td>${formatMoney(linha.juros)}</td>
+                    <td>${formatMoney(linha.saldo)}</td>
+                `;
+                amortizacaoBody.appendChild(row);
+            });
+            
+            // Cálculo da depreciação com taxas variáveis
+            const valoresDepreciacao = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, periodoAnalise);
+            
+            // Valor residual após o período
+            const valorResidual = valoresDepreciacao[periodoAnalise];
+            document.getElementById('valorResidual').textContent = formatMoney(valorResidual);
+            
+            // Cálculo do fluxo de caixa para compra
+            const fluxoCaixaCompra = [];
+            const custosAnuaisCompra = [];
+            
+            // Ano 0 (entrada)
+            fluxoCaixaCompra.push(-valorEntrada);
+            custosAnuaisCompra.push({
+                financiamento: 0,
+                ipva: 0,
+                seguro: 0,
+                manutencao: 0,
+                total: valorEntrada
+            });
+            
+            // Anos seguintes
+            for (let ano = 1; ano <= periodoAnalise; ano++) {
+                const valorIPVA = valoresDepreciacao[ano-1] * (taxaIPVA / 100);
+                const valorSeguro = valoresDepreciacao[ano-1] * (taxaSeguro / 100);
+                
+                let custoFinanciamentoAnual = 0;
+                if (ano <= Math.ceil(prazoFinanciamento / 12)) {
+                    const mesesNoAno = ano < Math.ceil(prazoFinanciamento / 12) ? 12 : prazoFinanciamento % 12 || 12;
+                    custoFinanciamentoAnual = financiamento.parcela * mesesNoAno;
+                }
+                
+                const custoAnual = custoFinanciamentoAnual + valorIPVA + valorSeguro + custoManutencao;
+                fluxoCaixaCompra.push(-custoAnual);
+                
+                custosAnuaisCompra.push({
+                    financiamento: custoFinanciamentoAnual,
+                    ipva: valorIPVA,
+                    seguro: valorSeguro,
+                    manutencao: custoManutencao,
+                    total: custoAnual
+                });
+            }
+            
+            // Adicionar valor residual no último ano (como entrada de caixa positiva)
+            fluxoCaixaCompra[periodoAnalise] += valorResidual;
+            
+            // Cálculo do fluxo de caixa para assinatura
+            const fluxoCaixaAssinatura = [];
+            const custosAnuaisAssinatura = [];
+            
+            // Ano 0 (sem entrada para assinatura)
+            fluxoCaixaAssinatura.push(0);
+            custosAnuaisAssinatura.push({
+                assinatura: 0,
+                total: 0
+            });
+            
+            // Anos seguintes
+            for (let ano = 1; ano <= periodoAnalise; ano++) {
+                const custoAssinaturaAnual = valorAssinatura * 12;
+                fluxoCaixaAssinatura.push(-custoAssinaturaAnual);
+                
+                custosAnuaisAssinatura.push({
+                    assinatura: custoAssinaturaAnual,
+                    total: custoAssinaturaAnual
+                });
+            }
+            
+            // Cálculo do custo de oportunidade
+            let custoOportunidade = valorEntrada * (Math.pow(1 + taxaRetorno / 100, periodoAnalise) - 1);
+            document.getElementById('custoOportunidade').textContent = formatMoney(custoOportunidade);
+            
+            // Cálculo do VPL
+            const vplCompra = calcularVPL(fluxoCaixaCompra, taxaDescontoVPL);
+            const vplAssinatura = calcularVPL(fluxoCaixaAssinatura, taxaDescontoVPL);
+            
+            document.getElementById('vplCompra').textContent = formatMoney(-vplCompra);
+            document.getElementById('vplAssinatura').textContent = formatMoney(-vplAssinatura);
+            document.getElementById('vplTotalCompra').textContent = formatMoney(-vplCompra);
+            document.getElementById('vplTotalAssinatura').textContent = formatMoney(-vplAssinatura);
+            
+            // Cálculo dos totais
+            let totalCompra = valorEntrada;
+            custosAnuaisCompra.slice(1).forEach(ano => {
+                totalCompra += ano.total;
+            });
+            totalCompra -= valorResidual;
+            
+            let totalAssinatura = 0;
+            custosAnuaisAssinatura.slice(1).forEach(ano => {
+                totalAssinatura += ano.total;
+            });
+            
+            document.getElementById('valorTotalCompra').textContent = formatMoney(totalCompra);
+            document.getElementById('valorTotalAssinatura').textContent = formatMoney(totalAssinatura);
+            
+            // Cálculo da economia total e mensal
+            const economiaTotal = totalAssinatura - totalCompra;
+            const economiaMensal = economiaTotal / (periodoAnalise * 12);
+            
+            document.getElementById('economiaTotal').textContent = formatMoney(economiaTotal);
+            document.getElementById('economiaMensal').textContent = formatMoney(economiaMensal);
+            
+            // Recomendação baseada no VPL
+            let vplComparado = vplCompra;
+            let vplAssinaturaComparado = vplAssinatura;
+            
+            // Benefícios fiscais para PJ
+            if (tipoUsuario === 'PJ' && considerarBeneficios) {
+                const aliquotaImpostos = 0.32; // 32% (IRPJ + CSLL + PIS/COFINS)
+                const totalAssinaturaAnos = valorAssinatura * 12 * periodoAnalise;
+                const beneficioFiscal = totalAssinaturaAnos * aliquotaImpostos;
+                
+                document.getElementById('beneficioFiscal').textContent = formatMoney(beneficioFiscal);
+                
+                const vplAssinaturaAjustado = vplAssinatura - beneficioFiscal / Math.pow(1 + taxaDescontoVPL / 100, periodoAnalise / 2); // Média do período
+                document.getElementById('vplAjustado').textContent = formatMoney(-vplAssinaturaAjustado);
+                
+                vplAssinaturaComparado = vplAssinaturaAjustado;
+            } else {
+                document.getElementById('beneficioFiscal').textContent = formatMoney(0);
+                document.getElementById('vplAjustado').textContent = formatMoney(-vplAssinatura);
+            }
+            
+            const recomendacao = document.getElementById('recommendation');
+            if (vplComparado < vplAssinaturaComparado) {
+                recomendacao.textContent = "Recomendação: COMPRAR o veículo";
+                recomendacao.style.backgroundColor = "#d4edda";
+                recomendacao.style.color = "#155724";
+            } else {
+                recomendacao.textContent = "Recomendação: ASSINAR o veículo";
+                recomendacao.style.backgroundColor = "#cce5ff";
+                recomendacao.style.color = "#004085";
+            }
+            
+            // Preenchimento da tabela de fluxo de caixa
+            const cashflowBody = document.getElementById('cashflowBody');
+            cashflowBody.innerHTML = '';
+            
+            for (let ano = 0; ano <= periodoAnalise; ano++) {
+                const row = document.createElement('tr');
+                const compraAnual = custosAnuaisCompra[ano];
+                const assinaturaAnual = custosAnuaisAssinatura[ano];
+                const diferenca = assinaturaAnual.total - compraAnual.total;
+                
+                row.innerHTML = `
+                    <td>${ano}</td>
+                    <td>${formatMoney(compraAnual.financiamento)}</td>
+                    <td>${formatMoney(compraAnual.ipva || 0)}</td>
+                    <td>${formatMoney(compraAnual.seguro || 0)}</td>
+                    <td>${formatMoney(compraAnual.manutencao || 0)}</td>
+                    <td>${formatMoney(compraAnual.total)}</td>
+                    <td>${formatMoney(valoresDepreciacao[ano])}</td>
+                    <td>${formatMoney(assinaturaAnual.total)}</td>
+                    <td class="${diferenca > 0 ? 'positive' : diferenca < 0 ? 'negative' : ''}">${formatMoney(diferenca)}</td>
+                `;
+                cashflowBody.appendChild(row);
+            }
+            
+            // Preenchimento da tabela de VPL
+            const vplBody = document.getElementById('vplBody');
+            vplBody.innerHTML = '';
+            
+            for (let ano = 0; ano <= periodoAnalise; ano++) {
+                const fluxoCompra = fluxoCaixaCompra[ano];
+                const fluxoAssinatura = fluxoCaixaAssinatura[ano];
+                
+                const vpCompra = ano === 0 ? fluxoCompra : fluxoCompra / Math.pow(1 + taxaDescontoVPL / 100, ano);
+                const vpAssinatura = ano === 0 ? fluxoAssinatura : fluxoAssinatura / Math.pow(1 + taxaDescontoVPL / 100, ano);
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${ano}</td>
+                    <td>${formatMoney(fluxoCompra)}</td>
+                    <td>${formatMoney(vpCompra)}</td>
+                    <td>${formatMoney(fluxoAssinatura)}</td>
+                    <td>${formatMoney(vpAssinatura)}</td>
+                `;
+                vplBody.appendChild(row);
+            }
+            
+            // Criação ou atualização dos gráficos
+            criarGraficos(custosAnuaisCompra, custosAnuaisAssinatura, valoresDepreciacao);
+            criarGraficosCustosAcumulados(custosAnuaisCompra, custosAnuaisAssinatura, periodoAnalise);
+            criarGraficosAnalise(valorCarro, taxaJuros, prazoFinanciamento, valorAssinatura, periodoAnalise, taxaDescontoVPL, taxasDepreciacao);
+            criarGraficosSimulacao(valorCarro, percentualEntrada, taxaJuros, prazoFinanciamento, 
+                                  valorAssinatura, taxaIPVA, taxaSeguro, custoManutencao, 
+                                  taxasDepreciacao, taxaDescontoVPL, tipoUsuario, considerarBeneficios);
+            criarGraficoDepreciacao(valorCarro, taxasDepreciacao, periodoAnalise);
+        }
+        
+        // Função para criar os gráficos principais
+        function criarGraficos(custosAnuaisCompra, custosAnuaisAssinatura, valoresDepreciacao) {
+            // Gráfico de composição de custos (Compra)
+            const ctxCompra = document.getElementById('chartCompra');
+            
+            // Cálculo dos totais para o gráfico de pizza
+            const totalFinanciamento = custosAnuaisCompra.reduce((total, ano) => total + ano.financiamento, 0);
+            const totalIPVA = custosAnuaisCompra.reduce((total, ano) => total + (ano.ipva || 0), 0);
+            const totalSeguro = custosAnuaisCompra.reduce((total, ano) => total + (ano.seguro || 0), 0);
+            const totalManutencao = custosAnuaisCompra.reduce((total, ano) => total + (ano.manutencao || 0), 0);
+            
+            if (chartCompra) {
+                chartCompra.destroy();
+            }
+            
+            chartCompra = new Chart(ctxCompra, {
+                type: 'pie',
+                data: {
+                    labels: ['Financiamento', 'IPVA', 'Seguro', 'Manutenção'],
+                    datasets: [{
+                        data: [totalFinanciamento, totalIPVA, totalSeguro, totalManutencao],
+                        backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc', '#f6c23e']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico de custos de assinatura
+            const ctxAssinatura = document.getElementById('chartAssinatura');
+            
+            if (chartAssinatura) {
+                chartAssinatura.destroy();
+            }
+            
+            chartAssinatura = new Chart(ctxAssinatura, {
+                type: 'pie',
+                data: {
+                    labels: ['Assinatura'],
+                    datasets: [{
+                        data: [custosAnuaisAssinatura.reduce((total, ano) => total + ano.total, 0)],
+                        backgroundColor: ['#e74a3b']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico comparativo anual
+            const ctxAnual = document.getElementById('chartAnual');
+            const anos = custosAnuaisCompra.map((_, index) => `Ano ${index}`);
+            const custosCompra = custosAnuaisCompra.map(ano => ano.total);
+            const custosAssinatura = custosAnuaisAssinatura.map(ano => ano.total);
+            const valoresCarros = valoresDepreciacao;
+            
+            if (chartAnual) {
+                chartAnual.destroy();
+            }
+            
+            chartAnual = new Chart(ctxAnual, {
+                type: 'bar',
+                data: {
+                    labels: anos,
+                    datasets: [
+                        {
+                            label: 'Custo Anual (Compra)',
+                            data: custosCompra,
+                            backgroundColor: '#4e73df'
+                        },
+                        {
+                            label: 'Custo Anual (Assinatura)',
+                            data: custosAssinatura,
+                            backgroundColor: '#e74a3b'
+                        },
+                        {
+                            label: 'Valor do Carro',
+                            data: valoresCarros,
+                            type: 'line',
+                            borderColor: '#1cc88a',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#1cc88a',
+                            fill: false
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Valor (R$)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para criar gráfico de depreciação
+        function criarGraficoDepreciacao(valorCarro, taxasDepreciacao, periodoAnalise) {
+            const ctxDepreciacao = document.getElementById('chartDepreciacao');
+            const valores = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, periodoAnalise);
+            const labels = Array.from({length: periodoAnalise + 1}, (_, i) => `Ano ${i}`);
+            
+            // Calcular percentuais de depreciação ano a ano
+            const percentuaisDepreciacao = [];
+            for (let i = 1; i <= periodoAnalise; i++) {
+                const percentual = ((valores[i-1] - valores[i]) / valores[i-1]) * 100;
+                percentuaisDepreciacao.push(percentual);
+            }
+            percentuaisDepreciacao.unshift(0); // Adicionar 0% para o ano 0
+            
+            if (chartDepreciacao) {
+                chartDepreciacao.destroy();
+            }
+            
+            chartDepreciacao = new Chart(ctxDepreciacao, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Valor do Veículo',
+                            data: valores,
+                            borderColor: '#1cc88a',
+                            backgroundColor: 'rgba(28, 200, 138, 0.1)',
+                            borderWidth: 2,
+                            fill: true,
+                            yAxisID: 'y'
+                        },
+                        {
+                            label: 'Taxa de Depreciação Anual (%)',
+                            data: percentuaisDepreciacao,
+                            borderColor: '#e74a3b',
+                            backgroundColor: 'rgba(231, 74, 59, 0.1)',
+                            borderWidth: 2,
+                            fill: false,
+                            yAxisID: 'y1'
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            position: 'left',
+                            title: {
+                                display: true,
+                                text: 'Valor (R$)'
+                            }
+                        },
+                        y1: {
+                            beginAtZero: true,
+                            position: 'right',
+                            title: {
+                                display: true,
+                                text: 'Depreciação (%)'
+                            },
+                            max: 25,
+                            grid: {
+                                drawOnChartArea: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para criar gráfico de custos acumulados
+        function criarGraficosCustosAcumulados(custosAnuaisCompra, custosAnuaisAssinatura, periodoAnalise) {
+            const ctxCustosAcumulados = document.getElementById('chartCustosAcumulados');
+            const anos = Array.from({length: periodoAnalise + 1}, (_, i) => `Ano ${i}`);
+            
+            // Calcular custos acumulados
+            const custosAcumuladosCompra = [];
+            const custosAcumuladosAssinatura = [];
+            
+            let acumuladoCompra = 0;
+            let acumuladoAssinatura = 0;
+            
+            for (let i = 0; i <= periodoAnalise; i++) {
+                acumuladoCompra += custosAnuaisCompra[i].total;
+                acumuladoAssinatura += custosAnuaisAssinatura[i].total;
+                
+                custosAcumuladosCompra.push(acumuladoCompra);
+                custosAcumuladosAssinatura.push(acumuladoAssinatura);
+            }
+            
+            if (chartCustosAcumulados) {
+                chartCustosAcumulados.destroy();
+            }
+            
+            chartCustosAcumulados = new Chart(ctxCustosAcumulados, {
+                type: 'line',
+                data: {
+                    labels: anos,
+                    datasets: [
+                        {
+                            label: 'Custos Acumulados (Compra)',
+                            data: custosAcumuladosCompra,
+                            borderColor: '#4e73df',
+                            backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        },
+                        {
+                            label: 'Custos Acumulados (Assinatura)',
+                            data: custosAcumuladosAssinatura,
+                            borderColor: '#e74a3b',
+                            backgroundColor: 'rgba(231, 74, 59, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Valor Acumulado (R$)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para criar gráficos de análise de sensibilidade
+        function criarGraficosAnalise(valorCarro, taxaJuros, prazoFinanciamento, valorAssinatura, periodoAnalise, taxaDescontoVPL, taxasDepreciacao) {
+            // Gráfico de impacto da entrada
+            const ctxEntradas = document.getElementById('chartEntradas');
+            const percentuaisEntrada = [0, 10, 20, 30, 40, 50];
+            const resultadosEntrada = [];
+            
+            // Calcular VPL para diferentes percentuais de entrada
+            percentuaisEntrada.forEach(percentual => {
+                const valorEntrada = valorCarro * (percentual / 100);
+                const valorFinanciado = valorCarro - valorEntrada;
+                
+                const financiamento = calcularFinanciamento(valorFinanciado, taxaJuros, prazoFinanciamento);
+                const fluxoCaixa = [-valorEntrada];
+                
+                const valoresDepreciacao = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, periodoAnalise);
+                
+                for (let ano = 1; ano <= periodoAnalise; ano++) {
+                    let custoFinanciamentoAnual = 0;
+                    if (ano <= Math.ceil(prazoFinanciamento / 12)) {
+                        const mesesNoAno = ano < Math.ceil(prazoFinanciamento / 12) ? 12 : prazoFinanciamento % 12 || 12;
+                        custoFinanciamentoAnual = financiamento.parcela * mesesNoAno;
+                    }
+                    
+                    const valorIPVA = valoresDepreciacao[ano-1] * (4/100);
+                    const valorSeguro = valoresDepreciacao[ano-1] * (3.5/100);
+                    const custoManutencao = 2000;
+                    
+                    const custoAnual = custoFinanciamentoAnual + valorIPVA + valorSeguro + custoManutencao;
+                    fluxoCaixa.push(-custoAnual);
+                }
+                
+                // Adicionar valor residual no último ano
+                const valorResidual = valoresDepreciacao[periodoAnalise];
+                fluxoCaixa[periodoAnalise] += valorResidual;
+                
+                const vplCompra = calcularVPL(fluxoCaixa, taxaDescontoVPL);
+                resultadosEntrada.push(-vplCompra);
+            });
+            
+            if (chartEntradas) {
+                chartEntradas.destroy();
+            }
+            
+            chartEntradas = new Chart(ctxEntradas, {
+                type: 'bar',
+                data: {
+                    labels: percentuaisEntrada.map(p => `${p}%`),
+                    datasets: [{
+                        label: 'VPL da Compra',
+                        data: resultadosEntrada,
+                        backgroundColor: '#4e73df'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'VPL (R$)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Percentual de Entrada'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico de impacto do prazo de financiamento
+            const ctxPrazos = document.getElementById('chartPrazos');
+            const prazosFinanciamento = [12, 24, 36, 48, 60, 72];
+            const resultadosPrazos = [];
+            
+            // Calcular VPL para diferentes prazos de financiamento
+            prazosFinanciamento.forEach(prazo => {
+                const valorEntrada = valorCarro * (30/100); // Fixo em 30%
+                const valorFinanciado = valorCarro - valorEntrada;
+                
+                const financiamento = calcularFinanciamento(valorFinanciado, taxaJuros, prazo);
+                const fluxoCaixa = [-valorEntrada];
+                
+                const valoresDepreciacao = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, periodoAnalise);
+                
+                for (let ano = 1; ano <= periodoAnalise; ano++) {
+                    let custoFinanciamentoAnual = 0;
+                    if (ano <= Math.ceil(prazo / 12)) {
+                        const mesesNoAno = ano < Math.ceil(prazo / 12) ? 12 : prazo % 12 || 12;
+                        custoFinanciamentoAnual = financiamento.parcela * mesesNoAno;
+                    }
+                    
+                    const valorIPVA = valoresDepreciacao[ano-1] * (4/100);
+                    const valorSeguro = valoresDepreciacao[ano-1] * (3.5/100);
+                    const custoManutencao = 2000;
+                    
+                    const custoAnual = custoFinanciamentoAnual + valorIPVA + valorSeguro + custoManutencao;
+                    fluxoCaixa.push(-custoAnual);
+                }
+                
+                // Adicionar valor residual no último ano
+                const valorResidual = valoresDepreciacao[periodoAnalise];
+                fluxoCaixa[periodoAnalise] += valorResidual;
+                
+                const vplCompra = calcularVPL(fluxoCaixa, taxaDescontoVPL);
+                resultadosPrazos.push(-vplCompra);
+            });
+            
+            if (chartPrazos) {
+                chartPrazos.destroy();
+            }
+            
+            chartPrazos = new Chart(ctxPrazos, {
+                type: 'bar',
+                data: {
+                    labels: prazosFinanciamento.map(p => `${p} meses`),
+                    datasets: [{
+                        label: 'VPL da Compra',
+                        data: resultadosPrazos,
+                        backgroundColor: '#1cc88a'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'VPL (R$)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Prazo do Financiamento'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico de análise de sensibilidade
+            const ctxSensibilidade = document.getElementById('chartSensibilidade');
+            const variacoesAssinatura = [-20, -10, 0, 10, 20];
+            const resultadosSensibilidade = [];
+            
+            // Calcular VPL para diferentes valores de assinatura
+            variacoesAssinatura.forEach(variacao => {
+                const valorAssinaturaAjustado = valorAssinatura * (1 + variacao/100);
+                const fluxoCaixa = [0];
+                
+                for (let ano = 1; ano <= periodoAnalise; ano++) {
+                    const custoAssinaturaAnual = valorAssinaturaAjustado * 12;
+                    fluxoCaixa.push(-custoAssinaturaAnual);
+                }
+                
+                const vplAssinatura = calcularVPL(fluxoCaixa, taxaDescontoVPL);
+                resultadosSensibilidade.push(-vplAssinatura);
+            });
+            
+            if (chartSensibilidade) {
+                chartSensibilidade.destroy();
+            }
+            
+            chartSensibilidade = new Chart(ctxSensibilidade, {
+                type: 'line',
+                data: {
+                    labels: variacoesAssinatura.map(v => `${v > 0 ? '+' : ''}${v}%`),
+                    datasets: [{
+                        label: 'VPL da Assinatura',
+                        data: resultadosSensibilidade,
+                        borderColor: '#e74a3b',
+                        backgroundColor: 'rgba(231, 74, 59, 0.1)',
+                        borderWidth: 2,
+                        fill: true
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: false,
+                            title: {
+                                display: true,
+                                text: 'VPL (R$)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Variação no Valor da Assinatura'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para criar gráficos de simulação
+        function criarGraficosSimulacao(valorCarro, percentualEntrada, taxaJuros, prazoFinanciamento, 
+                                       valorAssinatura, taxaIPVA, taxaSeguro, custoManutencao, 
+                                       taxasDepreciacao, taxaDescontoVPL, tipoUsuario, considerarBeneficios) {
+            
+            // Gráfico de impacto do período de uso
+            const ctxPeriodoImpacto = document.getElementById('chartPeriodoImpacto');
+            const periodos = [1, 2, 3, 4, 5, 6, 7, 8, 10];
+            const vplCompraArray = [];
+            const vplAssinaturaArray = [];
+            
+            // Calcular VPL para diferentes períodos
+            periodos.forEach(periodo => {
+                // Cálculos para compra
+                const valorEntrada = valorCarro * (percentualEntrada / 100);
+                const valorFinanciado = valorCarro - valorEntrada;
+                
+                const financiamento = calcularFinanciamento(valorFinanciado, taxaJuros, prazoFinanciamento);
+                const fluxoCaixaCompra = [-valorEntrada];
+                
+                const valoresDepreciacao = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, periodo);
+                
+                for (let ano = 1; ano <= periodo; ano++) {
+                    let custoFinanciamentoAnual = 0;
+                    if (ano <= Math.ceil(prazoFinanciamento / 12)) {
+                        const mesesNoAno = ano < Math.ceil(prazoFinanciamento / 12) ? 12 : prazoFinanciamento % 12 || 12;
+                        custoFinanciamentoAnual = financiamento.parcela * mesesNoAno;
+                    }
+                    
+                    const valorIPVAAnual = valoresDepreciacao[ano-1] * (taxaIPVA / 100);
+                    const valorSeguroAnual = valoresDepreciacao[ano-1] * (taxaSeguro / 100);
+                    
+                    const custoAnual = custoFinanciamentoAnual + valorIPVAAnual + valorSeguroAnual + custoManutencao;
+                    fluxoCaixaCompra.push(-custoAnual);
+                }
+                
+                // Adicionar valor residual no último ano
+                const valorResidual = valoresDepreciacao[periodo];
+                fluxoCaixaCompra[periodo] += valorResidual;
+                
+                // Cálculos para assinatura
+                const fluxoCaixaAssinatura = [0]; // Sem entrada
+                
+                for (let ano = 1; ano <= periodo; ano++) {
+                    const custoAssinaturaAnual = valorAssinatura * 12;
+                    fluxoCaixaAssinatura.push(-custoAssinaturaAnual);
+                }
+                
+                // Cálculo dos VPLs
+                let vplCompra = calcularVPL(fluxoCaixaCompra, taxaDescontoVPL);
+                let vplAssinatura = calcularVPL(fluxoCaixaAssinatura, taxaDescontoVPL);
+                
+                // Considerar benefícios fiscais para PJ
+                if (tipoUsuario === 'PJ' && considerarBeneficios) {
+                    const aliquotaImpostos = 0.32;
+                    const totalAssinaturaAnos = valorAssinatura * 12 * periodo;
+                    const beneficioFiscal = totalAssinaturaAnos * aliquotaImpostos;
+                    
+                    vplAssinatura -= beneficioFiscal / Math.pow(1 + taxaDescontoVPL / 100, periodo / 2);
+                }
+                
+                vplCompraArray.push(-vplCompra);
+                vplAssinaturaArray.push(-vplAssinatura);
+            });
+            
+            if (chartPeriodoImpacto) {
+                chartPeriodoImpacto.destroy();
+            }
+            
+            chartPeriodoImpacto = new Chart(ctxPeriodoImpacto, {
+                type: 'line',
+                data: {
+                    labels: periodos.map(p => `${p} ${p === 1 ? 'ano' : 'anos'}`),
+                    datasets: [
+                        {
+                            label: 'VPL da Compra',
+                            data: vplCompraArray,
+                            borderColor: '#4e73df',
+                            backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        },
+                        {
+                            label: 'VPL da Assinatura',
+                            data: vplAssinaturaArray,
+                            borderColor: '#e74a3b',
+                            backgroundColor: 'rgba(231, 74, 59, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'VPL (R$)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Período de Uso'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Gráfico de Break-even
+            const ctxBreakeven = document.getElementById('chartBreakeven');
+            const anosBreakeven = Array.from({length: 121}, (_, i) => i / 10); // 0 a 12 anos em incrementos de 0.1
+            const custosCompraBreakeven = [];
+            const custosAssinaturaBreakeven = [];
+            
+            // Valor da entrada
+            const valorEntrada = valorCarro * (percentualEntrada / 100);
+            
+            // Cálculo do financiamento
+            const valorFinanciado = valorCarro - valorEntrada;
+            const financiamento = calcularFinanciamento(valorFinanciado, taxaJuros, prazoFinanciamento);
+            
+            // Calcular custos acumulados para cada ponto no tempo
+            anosBreakeven.forEach(ano => {
+                // Custo inicial para compra (entrada)
+                let custoCompra = valorEntrada;
+                
+                // Adicionar parcelas do financiamento já pagas
+                const mesesTotais = Math.min(Math.ceil(ano * 12), prazoFinanciamento);
+                custoCompra += financiamento.parcela * mesesTotais;
+                
+                // Calcular a depreciação para este período específico
+                const valoresDepreciacao = calcularDepreciacaoVariavel(valorCarro, taxasDepreciacao, Math.ceil(ano));
+                
+                // Custos operacionais (IPVA, seguro, manutenção)
+                for (let anoCompleto = 0; anoCompleto < Math.floor(ano); anoCompleto++) {
+                    custoCompra += valoresDepreciacao[anoCompleto] * (taxaIPVA/100) + valoresDepreciacao[anoCompleto] * (taxaSeguro/100) + custoManutencao;
+                }
+                
+                // Parte fracionária do último ano
+                const fracaoAno = ano - Math.floor(ano);
+                if (fracaoAno > 0) {
+                    custoCompra += (valoresDepreciacao[Math.floor(ano)] * (taxaIPVA/100) + valoresDepreciacao[Math.floor(ano)] * (taxaSeguro/100) + custoManutencao) * fracaoAno;
+                }
+                
+                // Subtrair valor residual (se vender o carro neste momento)
+                const valorResidual = ano === 0 ? valorCarro : 
+                                    (ano % 1 === 0) ? valoresDepreciacao[ano] : 
+                                    valoresDepreciacao[Math.floor(ano)] * (1 - (fracaoAno * taxasDepreciacao[Math.min(Math.floor(ano), taxasDepreciacao.length - 1)]));
+                                    
+                custoCompra -= valorResidual;
+                
+                // Custo da assinatura é simples: mensalidade x meses
+                const custoAssinatura = valorAssinatura * ano * 12;
+                
+                // Benefício fiscal para PJ
+                let ajusteFiscal = 0;
+                if (tipoUsuario === 'PJ' && considerarBeneficios) {
+                    ajusteFiscal = custoAssinatura * 0.32; // 32% de economia em impostos
+                }
+                
+                custosCompraBreakeven.push(custoCompra);
+                custosAssinaturaBreakeven.push(custoAssinatura - ajusteFiscal);
+            });
+            
+            // Encontrar o ponto de break-even (intersecção das curvas)
+            let breakEvenPoint = -1;
+            for (let i = 1; i < anosBreakeven.length; i++) {
+                if ((custosCompraBreakeven[i-1] <= custosAssinaturaBreakeven[i-1] && custosCompraBreakeven[i] >= custosAssinaturaBreakeven[i]) ||
+                    (custosCompraBreakeven[i-1] >= custosAssinaturaBreakeven[i-1] && custosCompraBreakeven[i] <= custosAssinaturaBreakeven[i])) {
+                    
+                    // Interpolação linear para encontrar o ponto exato
+                    const x1 = anosBreakeven[i-1];
+                    const x2 = anosBreakeven[i];
+                    const y1a = custosCompraBreakeven[i-1];
+                    const y2a = custosCompraBreakeven[i];
+                    const y1b = custosAssinaturaBreakeven[i-1];
+                    const y2b = custosAssinaturaBreakeven[i];
+                    
+                    // Equação da reta para ambas as curvas e encontrar a intersecção
+                    const ma = (y2a - y1a) / (x2 - x1);
+                    const mb = (y2b - y1b) / (x2 - x1);
+                    const ba = y1a - ma * x1;
+                    const bb = y1b - mb * x1;
+                    
+                    // Ponto de intersecção
+                    if (ma !== mb) {
+                        breakEvenPoint = (bb - ba) / (ma - mb);
+                        if (breakEvenPoint >= x1 && breakEvenPoint <= x2) {
+                            break;
+                        }
+                    }
+                }
+            }
+            
+            if (chartBreakeven) {
+                chartBreakeven.destroy();
+            }
+            
+            chartBreakeven = new Chart(ctxBreakeven, {
+                type: 'line',
+                data: {
+                    labels: anosBreakeven.map(a => a.toFixed(1)),
+                    datasets: [
+                        {
+                            label: 'Custo Acumulado (Compra)',
+                            data: custosCompraBreakeven,
+                            borderColor: '#4e73df',
+                            backgroundColor: 'rgba(78, 115, 223, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        },
+                        {
+                            label: 'Custo Acumulado (Assinatura)',
+                            data: custosAssinaturaBreakeven,
+                            borderColor: '#e74a3b',
+                            backgroundColor: 'rgba(231, 74, 59, 0.1)',
+                            borderWidth: 2,
+                            fill: true
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            title: {
+                                display: true,
+                                text: 'Custo Acumulado (R$)'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Anos'
+                            },
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    // Mostrar menos pontos no eixo x para maior clareza
+                                    const tick = anosBreakeven[index];
+                                    return tick % 1 === 0 ? tick.toFixed(0) : '';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+            
+            // Atualizar texto do break-even point
+            const breakEvenElement = document.getElementById('breakEvenPoint');
+            if (breakEvenPoint > 0) {
+                const anos = Math.floor(breakEvenPoint);
+                const meses = Math.round((breakEvenPoint - anos) * 12);
+                
+                breakEvenElement.innerHTML = `
+                    <strong>Ponto de Equilíbrio (Break-even):</strong> ${anos} ${anos === 1 ? 'ano' : 'anos'} e ${meses} ${meses === 1 ? 'mês' : 'meses'}<br>
+                    Antes desse período, ${custosCompraBreakeven[0] <= custosAssinaturaBreakeven[0] ? 'COMPRAR' : 'ASSINAR'} é mais vantajoso.<br>
+                    Após esse período, ${custosCompraBreakeven[anosBreakeven.length-1] <= custosAssinaturaBreakeven[anosBreakeven.length-1] ? 'COMPRAR' : 'ASSINAR'} é mais vantajoso.
+                `;
+            } else {
+                if (custosCompraBreakeven[anosBreakeven.length-1] <= custosAssinaturaBreakeven[anosBreakeven.length-1]) {
+                    breakEvenElement.innerHTML = `
+                        <strong>Análise de longo prazo:</strong> COMPRAR é mais vantajoso em todo o período analisado.
+                    `;
+                } else {
+                    breakEvenElement.innerHTML = `
+                        <strong>Análise de longo prazo:</strong> ASSINAR é mais vantajoso em todo o período analisado.
+                    `;
+                }
+            }
+        }
+        
+        // Função para exportar o código HTML
+        function exportarHTML() {
+            // Obter todo o conteúdo HTML
+            const htmlContent = document.documentElement.outerHTML;
+            
+            // Copiar para a área de transferência
+            navigator.clipboard.writeText(htmlContent)
+                .then(() => {
+                    alert("O código HTML foi copiado para a área de transferência. Você pode colá-lo em um arquivo .html ou no GitHub.");
+                })
+                .catch(err => {
+                    console.error('Erro ao copiar o código HTML:', err);
+                    alert("Ocorreu um erro ao copiar o código HTML. Por favor, tente novamente.");
+                });
+        }
+        
+        // Event listeners para as abas
+        document.querySelectorAll('.tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                // Remover classe ativa de todas as abas
+                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Adicionar classe ativa à aba clicada
+                this.classList.add('active');
+                
+                // Mostrar o conteúdo correspondente
+                const contentId = this.getAttribute('data-tab');
+                document.getElementById(contentId).classList.add('active');
+            });
+        });
+        
+        // Vincular o input range com o input numérico de entrada
+        document.getElementById('percentualEntradaRange').addEventListener('input', function() {
+            document.getElementById('percentualEntrada').value = this.value;
+        });
+        
+        document.getElementById('percentualEntrada').addEventListener('input', function() {
+            document.getElementById('percentualEntradaRange').value = this.value;
+        });
+        
+        // Event listener para o botão de cálculo
+        document.getElementById('calcular').addEventListener('click', calcular);
+        
+        // Event listener para o botão de impressão
+        document.getElementById('printReport').addEventListener('click', function() {
+            window.print();
+        });
+        
+        // Event listener para o botão de exportação HTML
+        document.getElementById('exportHTML').addEventListener('click', exportarHTML);
+        
+        // Event listener para tipo de usuário
+        document.getElementById('tipoUsuario').addEventListener('change', function() {
+            const considerarBeneficiosCheckbox = document.getElementById('considerarBeneficios');
+            const isPJ = this.value === 'PJ';
+            
+            considerarBeneficiosCheckbox.disabled = !isPJ;
+            if (!isPJ) {
+                considerarBeneficiosCheckbox.checked = false;
+            }
+        });
+        
+        // Adicionar novas linhas na tabela de depreciação quando o período de análise mudar
+        document.getElementById('periodoAnalise').addEventListener('change', function() {
+            const periodoAnalise = parseInt(this.value);
+            atualizarTabelaDepreciacao(periodoAnalise);
+        });
+        
+        // Função para atualizar a tabela de depreciação
+        function atualizarTabelaDepreciacao(periodoAnalise) {
+            const table = document.getElementById('depreciacao-table');
+            const headerRow = table.querySelector('tr:first-child');
+            const dataRow = table.querySelector('tr:last-child');
+            
+            // Preservar valores existentes
+            const valoresAtuais = [];
+            const inputsAtuais = dataRow.querySelectorAll('input.dep-rate');
+            inputsAtuais.forEach(input => {
+                valoresAtuais.push(input.value);
+            });
+            
+            // Limpar linhas existentes
+            headerRow.innerHTML = '';
+            dataRow.innerHTML = '';
+            
+            // Adicionar células para cada ano
+            for (let i = 1; i <= Math.min(periodoAnalise, 15); i++) {
+                const th = document.createElement('th');
+                th.textContent = `Ano ${i}`;
+                headerRow.appendChild(th);
+                
+                const td = document.createElement('td');
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.className = 'dep-rate';
+                input.min = '0';
+                input.max = '50';
+                input.step = '0.5';
+                
+                // Usar valor existente ou valor padrão
+                if (i <= valoresAtuais.length) {
+                    input.value = valoresAtuais[i-1];
+                } else if (i === 1) {
+                    input.value = '20';
+                } else if (i === 2) {
+                    input.value = '15';
+                } else if (i === 3) {
+                    input.value = '12';
+                } else if (i === 4) {
+                    input.value = '10';
+                } else {
+                    input.value = '8';
+                }
+                
+                td.appendChild(input);
+                td.appendChild(document.createTextNode('%'));
+                dataRow.appendChild(td);
+            }
+        }
+        
+        // Realizar o cálculo inicial
+        calcular();
+        
+        // Abrir o primeiro acordeão por padrão
+        document.querySelector('.accordeon-header').click();
+    </script>
+
+
+</body></html>
